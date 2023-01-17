@@ -25,6 +25,8 @@ import VimlaSubscription from './components/Renewed/VimlaSubscription';
 import RequestLog from './components/Renewed/RequestLog';
 
 import Card1 from './components/Card';
+import Admin from './components/Authentication/Admin/Admin';
+import Users from './components/Authentication/Admin/Users';
 
 
 function App() {
@@ -53,6 +55,8 @@ function App() {
         <Route path='/vimla-subscription' element={<VimlaSubscription/>}/>
         <Route path='/vimla-non-subscription' element={<VimlaNonSubscription/>}/>
         <Route path='/evoil-subscription' element={<EvoilSubscription/>}/>
+        <Route path='/admin' element={<Admin/>}/>
+        <Route path='/users' element={<Users/>}/>
         <Route path='request-log' element={<RequestLog/>}/>
         <Route path='/notes-list' element={<NotesList queryString=""/>}></Route>
       </Routes>

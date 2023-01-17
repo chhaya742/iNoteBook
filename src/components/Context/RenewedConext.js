@@ -16,7 +16,7 @@ const RenewedProvider = ({ children }) => {
     const VimlaSubscription = async () => {
         try {
             const response = await axios.post("http://localhost:4000/getVimlaSubscription");
-            console.log(response.data.data);
+         
             if (response.data.status) {
                 setvimlaSubscription(response.data.data)
                
@@ -74,7 +74,7 @@ useEffect(() => {
   
 },[]);
 
-console.log(requestLog);
+
     return (
         <RenewedContext.Provider value={{ RequestLog,VimlaSubscription,vimlaSubscription,VimlaNonSubscription,vimlaNonSubscription,EvoilSubscription,evoilSubscription}}>
             {children}

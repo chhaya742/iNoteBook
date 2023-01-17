@@ -3,7 +3,7 @@ import { Form, Row, Card, Col } from "react-bootstrap";
 
 const RequestLog = (props) => {
     const { activeRow } = props;
-    console.log(JSON.parse(activeRow).user);
+
 
     return (
         <div>

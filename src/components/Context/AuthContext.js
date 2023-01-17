@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
     const [noteId, setNoteId] = useState([]);
     const [login, setLogin] = useState([]);
     const [user, setUser] = useState([]);
+    const [userlist, setUserList] = useState([]);
     const [listItems, setListItems] = useState([]);
     const [notes, setNotes] = useState([]);
     const [QueryString, setQueryString] = useState("");
@@ -23,9 +24,9 @@ const AuthProvider = ({ children }) => {
         try {
             const response = await axios.post("http://localhost:4000/user/login", data);
             if (response.data.status) {
-                console.log(response.data.data);
+               
                 setLogin(response.data.data)
-                // console.log(response.data.data.token);
+            
                 localStorage.setItem("authToken", response.data.data.token);
                 localStorage.setItem("user", JSON.stringify({ userDetials: response.data.data }));
                 navigate("/notes-list");
@@ -43,7 +44,7 @@ const AuthProvider = ({ children }) => {
             if (response.data.status) {
                 setUser(response.data)
                 toast.success(response.data.messages)
-                // console.log( response.data.data);
+          
                 localStorage.setItem("authToken", response.data.data.token);
                 localStorage.setItem("user", JSON.stringify({ userDetials: response.data.data }));
                 navigate("/notes-list")
@@ -89,7 +90,7 @@ const AuthProvider = ({ children }) => {
         // console.log(data);
         try {
             const response = await axios.post("http://localhost:4000/notes/delete", data);
-            // console.log(response.data);
+       
             if (response.data.status) {
                 setDeleteNotes(response.data.data)
                 // navigate("/notes-list")
@@ -142,6 +143,22 @@ const AuthProvider = ({ children }) => {
             if (response.data.status) {
                 setUpdateUser(response.data.data)
                 navigate("/user-profile")
+            } else {
+                toast.error(response.data.messages)
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+    const userList = async (data) => {
+
+        try {
+            const response = await axios.get("localhost:4000/user/list", data);
+            if (response.data.status) {
+                setUserList(response.data.data)
+                navigate("/notes-list")
             } else {
                 toast.error(response.data.messages)
             }

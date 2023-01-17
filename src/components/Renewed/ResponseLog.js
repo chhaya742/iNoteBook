@@ -3,7 +3,6 @@ import { Form, Row, Card, Col } from "react-bootstrap";
 
 const ResponseLog = (props) => {
   const { activeRow } = props;
- 
 
   return (
     <div>
