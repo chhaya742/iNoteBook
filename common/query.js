@@ -10,6 +10,14 @@ const findAll = async (tableName, params) => {
     // console.log(data);
     return data
 }
+const findAllUser= async (tableName, params) => {
+    const data = await knex.select('*').from(tableName)
+        .where('FirstName', 'like', `%${params.term}%`)
+        .limit(params.limit).offset(params.page)
+    // .toString()
+    // console.log(data);
+    return data
+}
 
 const insert = async (tableName, userData) => {
     // console.log(userData);
@@ -74,7 +82,8 @@ const query = {
     truncate,
     login,
     usergetbyId,
-    update1
+    update1,
+    findAllUser
 }
 
 
