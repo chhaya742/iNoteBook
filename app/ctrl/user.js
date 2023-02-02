@@ -47,10 +47,11 @@ const updateUser = (req, res) => {
 }
 
 const getallUsers = (req, res) => {
+    console.log(req.query);
     let page_q = req.query.page
     let limit_q = req.query.limit
     let query_string = req.query.query_string
-    term = "%" + query_string + "%";
+    let term = "%" + query_string + "%";
     // console.log(term);
     if (page_q && limit_q) {
         page_q = parseInt(page_q)
@@ -61,9 +62,10 @@ const getallUsers = (req, res) => {
         page_q = 0
         limit_q = 50
     }
-    userService.getAllProduct(page_q, limit_q, term).then((data) => {
+    userService.getAllUsers(page_q, limit_q, term).then((data) => {
         res.json({ status: true, statusCode: 200, messages: "get successfully", data: data })
     }).catch((err) => {
+        console.log(err);
         res.json({ status: false, statusCode: 404, messages: err.sqlMessage, data: [] })
     })
 };
@@ -88,6 +90,7 @@ const userCtrl = {
     getallUsers,
     deleteUser,
     loginUser,
-    userLogout
+    userLogout,
+    
 }
 module.exports = { userCtrl };

@@ -9,5 +9,6 @@ router.post('/user/update', userCtrl.updateUser);
 router.post('/user/login', userCtrl.loginUser);
 router.get('/user/getById/:id',authentication, userCtrl.getUserbyId);
 router.get('/user/logout', userCtrl.userLogout);
+router.get('/user/list', userCtrl.getallUsers);
 
 }

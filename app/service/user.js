@@ -41,7 +41,7 @@ const getAllUsers = async (page_q, limit_q, term) => {
         term: term
     }
     // console.log(params);
-    return query.findAll('user', params);
+    return query.findAllUser('user', params);
 };
 
 // Get By Id
@@ -59,6 +59,8 @@ const userService = {
     updateuser,
     getAllUsers,
     getUserById,
-    deleteUser
+    deleteUser,
+    getAllUsers
+    
 };
 module.exports = userService;
