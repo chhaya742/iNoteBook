@@ -22,11 +22,8 @@ export const loginValidation = (userInput) => {
     }
     error.isError = isError;
     return error
-
 }
-
 export const signupValidChecker = (userInput) => {
-
     const { FirstName,LastName ,Age, Email, password, Phone, Gender, Pin,Address } = userInput
 
     const error = {};
@@ -43,8 +40,7 @@ export const signupValidChecker = (userInput) => {
     if (!Age) {
         error.Age = " Age is Required";
         isError = true;
-    }
-    if (typeof (Age) == Number) {
+    } if (typeof (Age) == Number) {
         error.Age = "Enter valid age";
         isError = true;
 
