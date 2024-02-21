@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router';
 
 const Login = () => {
     const navigate = useNavigate();
-    const { loginPage, login } = useAuth();
+    const { loginPage } = useAuth();
     const [error, setError] = useState({ isError: true })
     const [loginDetail, setLoginDetail] = useState({Email: "",password: "",});
 
