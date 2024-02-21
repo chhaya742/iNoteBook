@@ -168,7 +168,7 @@ const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ loginPage, signupPage, listItems, notesList, addNotes, setQueryString, QueryString, deleteNote, noteId, setNoteId, data, getNotesByID, updateNote ,updateUser}}>
+        <AuthContext.Provider value={{login,user,deletenote,notes,updatenotes, updateuser,loginPage,userlist, signupPage, listItems, notesList, addNotes, setQueryString, QueryString, deleteNote, noteId, setNoteId, data, getNotesByID, updateNote ,updateUser}}>
             {children}
         </AuthContext.Provider>
     )
